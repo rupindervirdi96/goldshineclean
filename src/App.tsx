@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import {
+  Sidebar,
+  Navbar,
+  Booking,
+  Gallery,
+  Reviews,
+  Services,
+} from "./components";
+// import { useDispatch, useSelector } from "react-redux";
+// import { actions } from "./store/store";
+
+/*
+max-sm for max-width media query
+*/
 
 function App() {
+  const [showSidebar, setToggleSidebar] = useState<any>(false);
+
+  useEffect(() => {}, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full overflow-y-scroll bg-[url('./assets/bg1.jpg')] bg-cover bg-blend-overlay">
+      <Sidebar showSidebar={showSidebar} setToggleSidebar={setToggleSidebar} />
+      <Navbar
+        isSidebarVisible={showSidebar}
+        setToggleSidebar={setToggleSidebar}
+      />
+      <div className="flex overflow-x-scroll">
+        <Booking />
+        <Services />
+        <Gallery />
+        <Reviews />
+      </div>
     </div>
   );
 }
