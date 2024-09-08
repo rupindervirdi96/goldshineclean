@@ -40,17 +40,17 @@ export const Sidebar = ({ showSidebar, setToggleSidebar }: ISidebarProps) => {
         </a>
         <a
           onClick={() => setToggleSidebar(false)}
-          href="#testimonies"
-          className="hover:bg-slate-700 p-4 flex items-center justify-between"
-        >
-          Testimonies <NextStepIcon className="inline h-4 w-4" fill="#fff" />
-        </a>
-        <a
-          onClick={() => setToggleSidebar(false)}
           href="#reviews"
           className="hover:bg-slate-700 p-4 flex items-center justify-between"
         >
           Reviews <NextStepIcon className="inline h-4 w-4" fill="#fff" />
+        </a>
+        <a
+          onClick={() => setToggleSidebar(false)}
+          href="#testimonies"
+          className="hover:bg-slate-700 p-4 flex items-center justify-between"
+        >
+          Contact us <NextStepIcon className="inline h-4 w-4" fill="#fff" />
         </a>
       </ul>
       <div className="flex-1 bg-slate-400 opacity-75"></div>

@@ -7,13 +7,11 @@ export const Reviews = ({}: ReviewsProps) => {
   return (
     <div
       id="reviews"
-      className="min-w-full px-4 pb-[25px] h-[calc(100vh-68px)] flex items-top justify-center overflow-y-scroll"
+      className="snap-start min-w-full h-[calc(100vh-65px)] overflow-y-scroll flex flex-col p-3"
     >
       <div>
-        <h1 className="text-white text-lg py-4">People kind of like us..</h1>
-        <div className="pointer-events-auto">
-          <Review align="left" />
-          <Review align="right" />
+        <h1 className="text-white text-lg">Our valued customers told us that..</h1>
+        <div className="">
           <Review align="left" />
           <Review align="right" />
           <Review align="left" />

@@ -4,3 +4,6 @@ export { ReactComponent as CallIcon } from "./call.svg";
 export { ReactComponent as DropDownIcon } from "./dropDown.svg";
 export { ReactComponent as NextStepIcon } from "./nextStep.svg";
 export { ReactComponent as StarIcon } from "./star.svg";
+export { ReactComponent as InstaIcon } from "./instaIcon.svg";
+export { ReactComponent as WhatsappIcon } from "./whatsappIcon.svg";
+export { ReactComponent as TikTokIcon } from "./tikTokIcon.svg";
