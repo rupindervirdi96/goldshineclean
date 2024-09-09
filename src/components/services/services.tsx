@@ -17,8 +17,6 @@ export const Services = ({}: ServicesProps) => {
         </p>
       </div>
       <Service />
-      <Service />
-      <Service />
     </div>
   );
 };

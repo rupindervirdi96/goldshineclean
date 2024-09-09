@@ -9,15 +9,15 @@ export const Service = ({}: ServiceProps) => {
       <div className="py-2">
         <div className="h-44 w-44 flex overflow-auto snap-x snap-mandatory border-2 border-white rounded-md">
           <div
-            id="1"
+            id="A"
             className="snap-start min-w-full bg-[url('https://picsum.photos/200/300')]"
           ></div>
           <div
-            id="2"
+            id="B"
             className="snap-start min-w-full bg-[url('https://picsum.photos/200/300')]"
           ></div>
           <div
-            id="3"
+            id="C"
             className="snap-start min-w-full bg-[url('https://picsum.photos/200/300')]"
           ></div>
         </div>
@@ -37,7 +37,7 @@ export const Service = ({}: ServiceProps) => {
         molestiae natus doloremque corporis illo possimus sapiente, incidunt
         nostrum quod?
       </p>
-      <button className="p-2 my-4 bg-green-800 rounded-md">Get quote</button>
+      <a href="#getQuote" className="p-2 my-4 bg-green-800 rounded-md">Get quote</a>
     </div>
   );
 };

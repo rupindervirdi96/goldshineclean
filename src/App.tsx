@@ -8,8 +8,9 @@ import {
   Reviews,
   Services,
 } from "./components";
-import { InstaIcon, MenuIcon, WhatsappIcon } from "./assets";
+import { InstaIcon, MenuIcon, TikTokIcon, WhatsappIcon } from "./assets";
 import { Footer } from "./components/footer";
+import { GetQuote } from "./components/getQuote";
 // import { useDispatch, useSelector } from "react-redux";
 // import { actions } from "./store/store";
 
@@ -31,8 +32,9 @@ function App() {
         setToggleSidebar={setToggleSidebar}
       />
       <div className="flex overflow-auto snap-x snap-mandatory">
-        <Reviews />
         <Services />
+        <Reviews />
+        <GetQuote />
         {/* <Booking /> */}
         {/* <Gallery /> */}
       </div>
@@ -75,6 +77,9 @@ function App() {
           } absolute overflow-hidden transition-all duration-300`}
         >
           <ul className="flex flex-col items-center overflow-hidden">
+            <li className="my-2">
+              <TikTokIcon className="h-11 w-11" />
+            </li>
             <li className="my-2">
               <WhatsappIcon className="h-10 w-10" />
             </li>

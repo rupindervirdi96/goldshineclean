@@ -28,7 +28,7 @@ export const Review = ({ align }: ReviewProps) => {
       <div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sint
-          corrupti, a perspiciatis eaque maxime sapiente.
+          corrupti, a perspiciatis eaque maxime sapiente. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat, ut.
         </p>
       </div>
     </div>

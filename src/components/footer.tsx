@@ -10,7 +10,8 @@ export const Footer = ({}: FooterProps) => {
   useEffect(() => {}, []);
 
   return (
-    <div className="w-full">
+    <div className="w-full text-white">
+      FOOTER
     </div>
   );
 };
