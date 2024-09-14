@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
 import { NextStepIcon } from "../assets";
-// import { useDispatch, useSelector } from "react-redux";
-// import { actions } from "./store/store";
 
 interface ISidebarProps {
   showSidebar: boolean;

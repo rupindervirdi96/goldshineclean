@@ -7,3 +7,5 @@ export { ReactComponent as StarIcon } from "./star.svg";
 export { ReactComponent as InstaIcon } from "./instaIcon.svg";
 export { ReactComponent as WhatsappIcon } from "./whatsappIcon.svg";
 export { ReactComponent as TikTokIcon } from "./tikTokIcon.svg";
+export { ReactComponent as ArrowBackIcon } from "./arrowBack.svg";
+export { ReactComponent as ArrowForwardIcon } from "./arrowForward.svg";

@@ -17,8 +17,8 @@ code {
 }
 
 .cleanBtn {
-  height: 100%;
-  width: 100%;
+  min-height: 25px;
+  min-width: 25px;
   background-image: url("./assets/cleanBtn.png");
   background-position: center;
   background-size: cover;

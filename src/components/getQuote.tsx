@@ -1,73 +1,77 @@
 import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { actions } from "./store/store";
-import { MenuIcon, CloseMenuIcon, CallIcon, DropDownIcon } from "../assets";
+import { DropDownIcon } from "../assets";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../store";
 
-interface GetQuoteProps {}
+// interface GetQuoteProps {}
 
-export const GetQuote = ({}: GetQuoteProps) => {
-  const [addressResponse, setAddressResponse] = React.useState<any>([]);
+export const GetQuote = () => {
   const [addressText, setAddressText] = React.useState("");
   const [typingActive, setTypingActive] = React.useState(false);
+  const dispatch = useDispatch();
+  const { addressList, selectedServiceType } = useSelector((state: any) => ({
+    addressList: state.addressList,
+    selectedServiceType: state.selectedServiceType,
+  }));
 
-  const getData = async (address: string) => {
-    const addressString = address.replace(" ", "+");
-    const response = await axios({
-      method: "get",
-      url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${addressString}&location=44.645504%2C-63.593529&radius=500&key=AIzaSyDfv192ushbnK006jl17IgCXQz3F32H0Lc`,
-      withCredentials: false,
-    });
-    setAddressResponse(response.data);
-  };
+  const [serviceTypeList, setServiceTypeList] = React.useState([
+    "AIRBNB",
+    "Full House",
+    "Single room",
+    "Office",
+  ]);
 
   useEffect(() => {
-    addressText && getData(addressText);
+    addressText && actions.fetchAddresses(dispatch, addressText);
   }, [addressText]);
 
   return (
     <div
       id="getQuote"
       className="snap-start min-w-full h-[calc(100vh-65px)] overflow-y-scroll flex flex-col p-3"
+      data-index={2}
     >
       <form
         action=""
-        className="grid w-[80%] mx-auto text-gray-600 gap-3 text-sm"
+        className="grid w-full mx-auto text-gray-600 gap-3 text-sm"
       >
-        <p className="my-3 text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sint
-          tempore, dolore dolorem dolorum similique ullam, laboriosam labore
-          maxime vero explicabo quis ducimus voluptatum, voluptates modi culpa!
-          Tenetur, voluptates incidunt!
+        <p className="my-8 mt-12 text-lg text-white">
+          Fill out the form below to receive a personalized cleaning quote. Our
+          team is ready to make your space shine!
         </p>
         <input
           type="text"
           placeholder="Name"
-          className="w-full p-2 bg-gray-200 rounded-md"
+          className="w-full p-4 bg-gray-200 rounded-md"
           required
         />
-        <div className="w-full relative p-2 bg-gray-200 rounded-md">
+        <div className="w-full relative p-4 bg-gray-200 rounded-md">
           <DropDownIcon
             fill="#777"
             className="absolute top-1/2 left-full -translate-x-8 -translate-y-1/2"
           />
           <select className="rounded-md w-full bg-transparent appearance-none">
             <option value="0">Select your service</option>
-            <option value="1">AIR/BNB</option>
-            <option value="2">Full House</option>
-            <option value="3">Single room</option>
-            <option value="4">Office</option>
+            {serviceTypeList.map((service, key) => (
+              <option
+                value={key + 1}
+                selected={service === selectedServiceType}
+              >
+                {service}
+              </option>
+            ))}
           </select>
         </div>
         <input
-          className="w-full p-2 h-10 bg-gray-200 rounded-md"
+          className="w-full p-4 h-10 bg-gray-200 rounded-md"
           type="date"
           placeholder="Date"
           required
         />
         <div className="flex flex-col bg-gray-200 rounded-md">
           <input
-            className="w-full p-2 rounded-md bg-gray-200"
+            className="w-full p-4 rounded-md bg-gray-200"
             type="text"
             placeholder="Location"
             value={addressText}
@@ -76,12 +80,16 @@ export const GetQuote = ({}: GetQuoteProps) => {
               setAddressText(e.target.value);
             }}
           />
-          <ul className={`${!typingActive || !addressText.length ? "hidden" : ""} bg-gray-300`}>
-            {addressResponse &&
-              addressResponse?.predictions?.map((address: any, key: any) => {
+          <ul
+            className={`${
+              !typingActive || !addressText.length ? "hidden" : ""
+            } bg-gray-300`}
+          >
+            {addressList &&
+              addressList?.predictions?.map((address: any, key: any) => {
                 return (
                   <li
-                  className="py-1 px-2 bg-gray-300 hover:bg-gray-400"
+                    className="py-1 px-2 bg-gray-300 hover:bg-gray-400"
                     onClick={() => {
                       setTypingActive(false);
                       setAddressText(address.description);
@@ -97,19 +105,25 @@ export const GetQuote = ({}: GetQuoteProps) => {
         <input
           type="email"
           placeholder="Email"
-          className="w-full p-2 bg-gray-200 rounded-md"
+          className="w-full p-4 bg-gray-200 rounded-md"
         />
         <input
           type="phonenumber"
           placeholder="Phone"
-          className="w-full p-2 bg-gray-200 rounded-md"
+          className="w-full p-4 bg-gray-200 rounded-md"
           maxLength={10}
           required
+        />
+        <textarea
+          name="summary"
+          id=""
+          className="w-full p-4 bg-gray-200 rounded-md"
+          placeholder="Provide a summary of the services needed"
         />
         <input
           type="submit"
           value="Get Quote"
-          className="px-3 py-2 bg-green-800 text-white rounded-md w-1/2 mx-auto"
+          className="p-6 bg-green-800 text-white rounded-md w-1/2 mx-auto"
         />
       </form>
     </div>
