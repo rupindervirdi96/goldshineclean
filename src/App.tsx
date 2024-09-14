@@ -20,7 +20,7 @@ function App() {
   const pageNameMapping = ["#home", "#reviews", "#getQuote", "#gallery"];
 
   return (
-    <div className="h-screen overflow-y-hidden overflow-x-hidden relative bg-[url('./assets/bg1.jpg')] bg-cover bg-[rgba(0,0,0,0.5)] bg-blend-overlay backdrop-blur-md">
+    <div className="h-dvh overflow-y-hidden overflow-x-hidden relative bg-[url('./assets/bg1.jpg')] bg-cover bg-[rgba(0,0,0,0.5)] bg-blend-overlay backdrop-blur-md">
       {/* <Sidebar showSidebar={showSidebar} setToggleSidebar={setToggleSidebar} /> */}
       <Navbar
         isSidebarVisible={showSidebar}

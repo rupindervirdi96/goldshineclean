@@ -12,7 +12,7 @@
 .marquee {
   position: fixed;
   left: 0;
-  top: 65px;
+  top: 64px;
   width: 100%;
   line-height: 25px;
   background-color: rgb(0, 0, 0);
@@ -20,11 +20,12 @@
   white-space: nowrap;
   overflow: hidden;
   box-sizing: border-box;
+  z-index: 1000;
 }
 
 @media screen and (min-width: 680px) {
   .marquee {
-    top: 129px;
+    top: 128px;
   }
 }
 
