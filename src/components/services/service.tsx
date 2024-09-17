@@ -16,39 +16,38 @@ const Service: React.FC<IServiceProps> = ({
   service,
 }) => {
   const [photos, setPhotos] = React.useState([
-    "bg-[url('https://picsum.photos/200/300')]",
-    "bg-[url('https://picsum.photos/200/300')]",
-    "bg-[url('https://picsum.photos/200/300')]",
+    "https://picsum.photos/200/300",
+    "https://picsum.photos/200/301",
+    "https://picsum.photos/200/302",
   ]);
   const { setServiceType } = actions;
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(service);
-  }, [service]);
-
   return (
     <div className="w-full flex flex-col items-center justify-center text-white my-2 bg-[rgba(0,0,0,0.6)] rounded-md">
-      <h1 className="text-2xl py-3 pt-5">{service.service.name}</h1>
+      <h1 className="heading-2 text-3xl py-3 pt-8 ">
+        {service.service.name}
+      </h1>
       <div className="py-2">
         <div
           ref={containerRef}
-          className="h-56 w-56 flex overflow-auto snap-x snap-mandatory border-2 border-white rounded-md"
+          className="h-64 w-80 flex overflow-auto snap-x snap-mandatory border-2 border-white rounded-md"
         >
-          {photos.map((photo: any, key: any) => {
-            console.log(photo.toString());
-
+          {service.service.images.map((photo: any, key: any) => {
             return (
               <div
-                className={`flex-none w-full basis-full snap-start bg-[url('https://picsum.photos/200/300')] bg-cover bg-center`}
+                className="flex-none w-full basis-full snap-start bg-cover bg-center aspect-square"
+                style={{
+                  backgroundImage: `url(${photo})`,
+                }}
                 data-index={key.toString()}
               ></div>
             );
           })}
         </div>
         <div className="flex justify-center items-center">
-          {photos.map((value, key) => {
+          {service.service.images.map((value: any, key: any) => {
             return (
               <div
                 id={key.toString()}

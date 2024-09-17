@@ -1,5 +1,6 @@
 import React from "react";
 import { StarIcon } from "../../assets";
+import { calculateDifference } from "../../utils/review";
 
 interface ReviewProps {
   align: string;
@@ -25,14 +26,9 @@ export const Review = ({ align, reviewDetails }: ReviewProps) => {
           <h2>{customerName}</h2>
           <span className="flex">
             {elements.map((Element: any) => Element)}
-            {/* <StarIcon fill="#d3d000" />
-            <StarIcon fill="#d3d000" />
-            <StarIcon fill="#d3d000" />
-            <StarIcon fill="#d3d000" />
-            <StarIcon fill="#d3d000" /> */}
           </span>
         </div>
-        <div>{userSince}</div>
+        <div>{calculateDifference(new Date(userSince))}</div>
       </div>
       <div>
         <p>{reviewText}</p>

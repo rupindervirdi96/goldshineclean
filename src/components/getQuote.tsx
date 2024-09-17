@@ -16,10 +16,11 @@ export const GetQuote = () => {
   }));
 
   const [serviceTypeList, setServiceTypeList] = React.useState([
-    "AIRBNB",
-    "Full House",
-    "Single room",
-    "Office",
+    "COMMERCIAL",
+    "RESIDENTIAL",
+    "CARPETS",
+    "STAIN REMOVAL",
+    "CONSTRUCTION",
   ]);
 
   useEffect(() => {
@@ -36,9 +37,12 @@ export const GetQuote = () => {
         action=""
         className="grid w-full mx-auto text-gray-600 gap-3 text-sm"
       >
-        <p className="my-8 mt-12 text-lg text-white">
-          Fill out the form below to receive a personalized cleaning quote. Our
-          team is ready to make your space shine!
+        <h1 className="mainTitle mb-6 mt-12 text-3xl text-center text-white">
+          GET QUOTE
+        </h1>
+        <p className="text-center text-white">
+          Please provide the details below to receive a personalized cleaning
+          quote from our specialized team.
         </p>
         <input
           type="text"
@@ -46,12 +50,12 @@ export const GetQuote = () => {
           className="w-full p-4 bg-gray-200 rounded-md"
           required
         />
-        <div className="w-full relative p-4 bg-gray-200 rounded-md">
+        <div className="w-full relative bg-gray-200 rounded-md">
           <DropDownIcon
             fill="#777"
             className="absolute top-1/2 left-full -translate-x-8 -translate-y-1/2"
           />
-          <select className="rounded-md w-full bg-transparent appearance-none">
+          <select className="rounded-md w-full p-4 bg-transparent appearance-none">
             <option value="0">Select your service</option>
             {serviceTypeList.map((service, key) => (
               <option
@@ -64,7 +68,7 @@ export const GetQuote = () => {
           </select>
         </div>
         <input
-          className="w-full p-4 h-10 bg-gray-200 rounded-md"
+          className="w-full p-4 h-[52px] bg-gray-200 rounded-md"
           type="date"
           placeholder="Date"
           required

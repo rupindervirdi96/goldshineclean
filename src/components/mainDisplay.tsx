@@ -14,20 +14,13 @@ export const MainDisplay: React.FC<IMainDisplayProps> = ({
   containerRef,
   visibleIndex,
 }) => {
-
   return (
     <>
       <div
         ref={containerRef}
-        className="relative flex overflow-auto overflow-x-scroll snap-x snap-mandatory"
+        // className="relative flex overflow-auto overflow-x-scroll snap-x snap-mandatory"
+        className=""
       >
-        <div className="marquee">
-          <p>
-            WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME
-            WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME
-            WELCOME WELCOME WELCOME WELCOME
-          </p>
-        </div>
         <Services />
         <Reviews />
         <GetQuote />
