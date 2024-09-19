@@ -10,7 +10,6 @@ import {
   ArrowForwardIcon,
 } from "./assets";
 import { GetQuote } from "./components/getQuote";
-import { MainDisplayEnhanced } from "./components/mainDisplay";
 import { Footer } from "./components/footer";
 
 function App() {

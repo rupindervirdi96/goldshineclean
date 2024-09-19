@@ -3,12 +3,20 @@ import { DropDownIcon } from "../assets";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../store";
+import emailjs from "@emailjs/browser";
+import { useForm } from "react-hook-form";
 
 // interface GetQuoteProps {}
 
 export const GetQuote = () => {
   const [addressText, setAddressText] = React.useState("");
   const [typingActive, setTypingActive] = React.useState(false);
+  const [showFrequency, setShowFrequency] = React.useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const dispatch = useDispatch();
   const { addressList, selectedServiceType } = useSelector((state: any) => ({
     addressList: state.addressList,
@@ -27,6 +35,43 @@ export const GetQuote = () => {
     addressText && actions.fetchAddresses(dispatch, addressText);
   }, [addressText]);
 
+  const requestQuote = async (data: any) => {
+    // emailjs.sendForm("service_7enoph6","template_9bmhw6u", )
+    var emailDetails = {
+      service_id: "service_7enoph6",
+      template_id: "template_9bmhw6u",
+      user_id: "cWk2SUZjrQP1AjJui",
+      template_params: {
+        clientName: "James",
+        serviceType: "James",
+        serviceFrequency: "James",
+        serviceDate: "James",
+        location: "James",
+        email: "James",
+        phone: "James",
+        serviceDetails: "James",
+      },
+    };
+    console.log(data);
+
+    // const response = await axios.post(
+    //   "https://api.emailjs.com/api/v1.0/email/send",
+    //   data
+    // );
+    // console.log(response.data);
+  };
+
+  /*
+  {{clientName}}
+Service type	{{serviceType}}
+Frequency	{{serviceFrequency}}
+Date	{{serviceDate}}
+Location	{{location}}
+Email	{{email}}
+Phone	{{phone}}
+Service details	{{serviceDetails}}
+  */
+
   return (
     <div
       id="getQuote"
@@ -36,9 +81,10 @@ export const GetQuote = () => {
       <form
         action=""
         className="grid w-full mx-auto text-gray-600 gap-3 text-sm"
+        onSubmit={handleSubmit(requestQuote)}
       >
         <h1 className="mainTitle mb-6 mt-12 text-3xl text-center text-white">
-          GET QUOTE
+          GET FREE QUOTE
         </h1>
         <p className="text-center text-white">
           Please provide the details below to receive a personalized cleaning
@@ -48,14 +94,17 @@ export const GetQuote = () => {
           type="text"
           placeholder="Name"
           className="w-full p-4 bg-gray-200 rounded-md"
-          required
+          {...register("clientName", { required: true })}
         />
         <div className="w-full relative bg-gray-200 rounded-md">
           <DropDownIcon
             fill="#777"
             className="absolute top-1/2 left-full -translate-x-8 -translate-y-1/2"
           />
-          <select className="rounded-md w-full p-4 bg-transparent appearance-none">
+          <select
+            className="rounded-md w-full p-4 bg-transparent appearance-none"
+            {...register("serviceType", { required: true })}
+          >
             <option value="0">Select your service</option>
             {serviceTypeList.map((service, key) => (
               <option
@@ -67,11 +116,32 @@ export const GetQuote = () => {
             ))}
           </select>
         </div>
+        <div className="text-white flex items-center -mt-2">
+          <label htmlFor="">Repeat?</label>
+          <input
+            type="checkbox"
+            className="ml-2 h-6 w-6"
+            {...register("isFrequent", {
+              onChange: (e) => setShowFrequency(e.target.checked),
+            })}
+          />
+        </div>
+        {/* {showFrequency && (
+          <select
+            className="w-full p-4 h-[52px] bg-gray-200 rounded-md"
+            id=""
+            {...register("frequency", { required: true })}
+          >
+            <option value="">Weekly</option>
+            <option value="">Biweekly</option>
+            <option value="">Monthly</option>
+          </select>
+        )} */}
         <input
           className="w-full p-4 h-[52px] bg-gray-200 rounded-md"
           type="date"
           placeholder="Date"
-          required
+          {...register("serviceDate", { required: true })}
         />
         <div className="flex flex-col bg-gray-200 rounded-md">
           <input
@@ -79,6 +149,7 @@ export const GetQuote = () => {
             type="text"
             placeholder="Location"
             value={addressText}
+            {...register("location", { required: true })}
             onChange={(e) => {
               setTypingActive(true);
               setAddressText(e.target.value);
@@ -110,19 +181,18 @@ export const GetQuote = () => {
           type="email"
           placeholder="Email"
           className="w-full p-4 bg-gray-200 rounded-md"
+          {...register("email", { required: true })}
         />
         <input
           type="phonenumber"
           placeholder="Phone"
           className="w-full p-4 bg-gray-200 rounded-md"
-          maxLength={10}
-          required
+          {...register("phonenumber", { required: true, maxLength: 10 })}
         />
         <textarea
-          name="summary"
-          id=""
           className="w-full p-4 bg-gray-200 rounded-md"
           placeholder="Provide a summary of the services needed"
+          {...register("serviceDetails", { required: true })}
         />
         <input
           type="submit"

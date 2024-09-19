@@ -23,6 +23,9 @@ jobs:
       - name: Build
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+          REACT_APP_SERVICE_ID: ${{ secrets.REACT_APP_SERVICE_ID }}
+          REACT_APP_TEMPLATE_ID: ${{ secrets.REACT_APP_TEMPLATE_ID }}
+          REACT_APP_USER_ID: ${{ secrets.REACT_APP_USER_ID }}
         run: npm run build
 
       - name: Deploy

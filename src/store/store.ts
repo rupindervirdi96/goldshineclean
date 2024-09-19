@@ -5,8 +5,12 @@ export const actions = {
   fetchAddresses: async (dispatch: any, payload: any) => {
     const response = await axios({
       method: "get",
-      url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${payload}&location=44.645504%2C-63.593529&radius=500&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
+      url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${payload}&location=44.645504%2C-63.593529&radius=500&key=${process.env.REACT_APP_API_KEY}`,
       withCredentials: false,
+      headers: {
+        "Content-Type": "application/json",
+        
+      },
     });
     dispatch({ type: "FETCH_ADDRESSES", payload: response.data });
   },

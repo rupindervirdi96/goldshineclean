@@ -49,7 +49,7 @@ export const WithSliderManagement: React.FC<IServiceProps> = ({
         );
       }
     };
-  }, []);
+  }, [setPageIndex]);
 
   return <Component containerRef={containerRef} visibleIndex={visibleIndex} service={service} />;
 };
