@@ -1,0 +1,34 @@
+name: Deploy React App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+        run: npm run build
+
+      - name: Deploy
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "your_email@example.com"
+          git add build
+          git commit -m "Deploying build" || echo "No changes to commit"
+          git subtree push --prefix build origin gh-pages
