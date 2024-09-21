@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/goldshineclean/static/css/main.a7ef3eef.css",
-    "main.js": "/goldshineclean/static/js/main.13681a37.js",
+    "main.css": "/goldshineclean/static/css/main.f65dc83b.css",
+    "main.js": "/goldshineclean/static/js/main.4fb598b7.js",
     "static/media/bg1.jpg": "/goldshineclean/static/media/bg1.0956558dc3c11dccb9a8.jpg",
     "static/media/tikTokIcon.svg": "/goldshineclean/static/media/tikTokIcon.fafd91ddd92b9cbd87d9ce06e0a3cb95.svg",
-    "static/media/whatsappIcon.svg": "/goldshineclean/static/media/whatsappIcon.b246f6acc2bc74032a51c245022f958b.svg",
+    "static/media/whatsappIcon.svg": "/goldshineclean/static/media/whatsappIcon.39f450eff7b009022dbee68130d85dd4.svg",
     "static/media/instaIcon.svg": "/goldshineclean/static/media/instaIcon.bbfb8661737f42d9b1238115c966ad53.svg",
     "index.html": "/goldshineclean/index.html",
     "static/media/call.svg": "/goldshineclean/static/media/call.c57f18a5a6c81afc9dda7064e78c219b.svg",
     "static/media/closeMenu.svg": "/goldshineclean/static/media/closeMenu.685290c6ca9901f4d3cc0e64c2542b33.svg",
     "static/media/star.svg": "/goldshineclean/static/media/star.c16414f8f112b5faaaa00403eab2fb91.svg",
-    "static/media/arrowForward.svg": "/goldshineclean/static/media/arrowForward.406de624f746d380a4435a6226dcd593.svg",
-    "static/media/arrowBack.svg": "/goldshineclean/static/media/arrowBack.e3fb606a46eba24c5ee8723b99ee3aa1.svg",
+    "static/media/arrowForward.svg": "/goldshineclean/static/media/arrowForward.e2254ea8cbf55d3dad6e4b565a8165ee.svg",
+    "static/media/arrowBack.svg": "/goldshineclean/static/media/arrowBack.1b9979dcdb7658593710bf2e9afce85c.svg",
     "static/media/menu.svg": "/goldshineclean/static/media/menu.271ea0c1da28d003ec386119e7b1ca5c.svg",
     "static/media/nextStep.svg": "/goldshineclean/static/media/nextStep.9d199a6952843804af3cfc7ee6d4137d.svg",
     "static/media/dropDown.svg": "/goldshineclean/static/media/dropDown.0fc4319830bfe969db9200eb2b999a48.svg",
-    "main.a7ef3eef.css.map": "/goldshineclean/static/css/main.a7ef3eef.css.map",
-    "main.13681a37.js.map": "/goldshineclean/static/js/main.13681a37.js.map"
+    "main.f65dc83b.css.map": "/goldshineclean/static/css/main.f65dc83b.css.map",
+    "main.4fb598b7.js.map": "/goldshineclean/static/js/main.4fb598b7.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7ef3eef.css",
-    "static/js/main.13681a37.js"
+    "static/css/main.f65dc83b.css",
+    "static/js/main.4fb598b7.js"
   ]
 }
