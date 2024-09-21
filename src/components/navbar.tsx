@@ -31,14 +31,8 @@ export const Navbar = ({ setToggleSidebar, isSidebarVisible }: NavbarProps) => {
       <h1 className="mainTitle z-20 text-3xl text-green-400">
         GOLD SHINE CLEANING 
       </h1>
-      {/* <ul className="max-sm:hidden text-white flex items-center justify-center">
-        <li className="px-5 py-2 mx-2 hover:underline underline-offset-4">Home</li>
-        <li className="px-5 py-2 mx-2 hover:underline underline-offset-4">Services</li>
-        <li className="px-5 py-2 mx-2 hover:underline underline-offset-4">Reviews</li>
-      </ul> */}
-      <a className="z-20 text-sm md:flex md:justify-end text-white" href={`tel:+14389981746`}>
+      <a className="z-20 text-sm md:flex md:justify-end text-white" href={`tel:+13065806152`}>
         <span>+1 (306 580-6152)</span>
-        {/* <CallIcon className="h-6 w-6" fill="#ffffff" /> */}
       </a>
     </div>
   );

@@ -36,41 +36,44 @@ export const GetQuote = () => {
   }, [addressText]);
 
   const requestQuote = async (data: any) => {
-    // emailjs.sendForm("service_7enoph6","template_9bmhw6u", )
+    const {
+      clientName,
+      serviceType,
+      serviceFrequency,
+      serviceDate,
+      location,
+      email,
+      phonenumber,
+      serviceDetails,
+    } = data;
     var emailDetails = {
-      service_id: "service_7enoph6",
-      template_id: "template_9bmhw6u",
-      user_id: "cWk2SUZjrQP1AjJui",
+      service_id: process.env.REACT_APP_SERVICE_ID,
+      template_id: process.env.REACT_APP_TEMPLATE_ID,
+      user_id: process.env.REACT_APP_USER_ID,
       template_params: {
-        clientName: "James",
-        serviceType: "James",
-        serviceFrequency: "James",
-        serviceDate: "James",
-        location: "James",
-        email: "James",
-        phone: "James",
-        serviceDetails: "James",
+        clientName,
+        serviceType,
+        serviceFrequency,
+        serviceDate,
+        location,
+        email,
+        phonenumber,
+        serviceDetails,
       },
     };
-    console.log(data);
+    console.log(errors);
 
-    // const response = await axios.post(
-    //   "https://api.emailjs.com/api/v1.0/email/send",
-    //   data
-    // );
-    // console.log(response.data);
+    const templateMessage = `Hi, this is ${clientName} here. I need "${
+      serviceTypeList[serviceType - 1]
+    }" cleaning service ${
+      serviceFrequency ? serviceFrequency : ""
+    } at ${location}. Reach me out at ${email} or ${phonenumber}. ${
+      serviceDetails ? "\n\nDetails: " + serviceDetails : ""
+    }`;
+    if (!errors.keys) {
+      window.location.href = `https://wa.me/13065806152?text=${templateMessage}`;
+    }
   };
-
-  /*
-  {{clientName}}
-Service type	{{serviceType}}
-Frequency	{{serviceFrequency}}
-Date	{{serviceDate}}
-Location	{{location}}
-Email	{{email}}
-Phone	{{phone}}
-Service details	{{serviceDetails}}
-  */
 
   return (
     <div
@@ -194,11 +197,25 @@ Service details	{{serviceDetails}}
           placeholder="Provide a summary of the services needed"
           {...register("serviceDetails", { required: true })}
         />
-        <input
+        <div className="flex gap-10">
+          <button
+            className="p-6 bg-green-800 text-white rounded-md w-1/2 mx-auto"
+            type="submit"
+          >
+            GetQuote
+          </button>
+          <button
+            className="p-6 bg-green-800 text-white rounded-md w-1/2 mx-auto"
+            type="submit"
+          >
+            Whatsapp
+          </button>
+        </div>
+        {/* <input
           type="submit"
           value="Get Quote"
           className="p-6 bg-green-800 text-white rounded-md w-1/2 mx-auto"
-        />
+        /> */}
       </form>
     </div>
   );
