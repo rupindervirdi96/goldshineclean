@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/goldshineclean/static/css/main.3268bd50.css",
+    "main.css": "/goldshineclean/static/css/main.4f9a8309.css",
     "main.js": "/goldshineclean/static/js/main.51ba5ad4.js",
     "static/media/bg1.jpg": "/goldshineclean/static/media/bg1.0956558dc3c11dccb9a8.jpg",
     "static/media/mainLogo.jpeg": "/goldshineclean/static/media/mainLogo.ab602d31b7c9ef2f28be.jpeg",
@@ -16,11 +16,11 @@
     "static/media/menu.svg": "/goldshineclean/static/media/menu.271ea0c1da28d003ec386119e7b1ca5c.svg",
     "static/media/nextStep.svg": "/goldshineclean/static/media/nextStep.9d199a6952843804af3cfc7ee6d4137d.svg",
     "static/media/dropDown.svg": "/goldshineclean/static/media/dropDown.0fc4319830bfe969db9200eb2b999a48.svg",
-    "main.3268bd50.css.map": "/goldshineclean/static/css/main.3268bd50.css.map",
+    "main.4f9a8309.css.map": "/goldshineclean/static/css/main.4f9a8309.css.map",
     "main.51ba5ad4.js.map": "/goldshineclean/static/js/main.51ba5ad4.js.map"
   },
   "entrypoints": [
-    "static/css/main.3268bd50.css",
+    "static/css/main.4f9a8309.css",
     "static/js/main.51ba5ad4.js"
   ]
 }
