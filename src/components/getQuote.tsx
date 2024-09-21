@@ -75,7 +75,7 @@ Service details	{{serviceDetails}}
   return (
     <div
       id="getQuote"
-      className="snap-start min-w-full h-[calc(100vh-65px)] overflow-y-scroll flex flex-col p-3"
+      className="snap-start min-w-full flex flex-col p-3"
       data-index={2}
     >
       <form
@@ -117,7 +117,7 @@ Service details	{{serviceDetails}}
           </select>
         </div>
         <div className="text-white flex items-center -mt-2">
-          <label htmlFor="">Repeat?</label>
+          <label htmlFor="">Would you like us to repeat this service?</label>
           <input
             type="checkbox"
             className="ml-2 h-6 w-6"
@@ -126,7 +126,7 @@ Service details	{{serviceDetails}}
             })}
           />
         </div>
-        {/* {showFrequency && (
+        {showFrequency && (
           <select
             className="w-full p-4 h-[52px] bg-gray-200 rounded-md"
             id=""
@@ -136,7 +136,7 @@ Service details	{{serviceDetails}}
             <option value="">Biweekly</option>
             <option value="">Monthly</option>
           </select>
-        )} */}
+        )}
         <input
           className="w-full p-4 h-[52px] bg-gray-200 rounded-md"
           type="date"
@@ -158,7 +158,7 @@ Service details	{{serviceDetails}}
           <ul
             className={`${
               !typingActive || !addressText.length ? "hidden" : ""
-            } bg-gray-300`}
+            } bg-gray-300 select-none`}
           >
             {addressList &&
               addressList?.predictions?.map((address: any, key: any) => {
