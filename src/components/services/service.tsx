@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { WithSliderManagement } from "../../hoc/withSliderManagement";
-import { ObjectType } from "typescript";
 import { useDispatch } from "react-redux";
 import { actions } from "../../store/store";
 
@@ -15,11 +14,6 @@ const Service: React.FC<IServiceProps> = ({
   visibleIndex,
   service,
 }) => {
-  const [photos, setPhotos] = React.useState([
-    "https://picsum.photos/200/300",
-    "https://picsum.photos/200/301",
-    "https://picsum.photos/200/302",
-  ]);
   const { setServiceType } = actions;
 
   const dispatch = useDispatch();
@@ -59,7 +53,7 @@ const Service: React.FC<IServiceProps> = ({
           })}
         </div>
       </div>
-      <p className="p-2 text-center text-sm">{service.service.description}</p>
+      <p className="p-2 text-center text-sm md:w-1/2 md:mx-auto md:text-base">{service.service.description}</p>
       <a
         href="#getQuote"
         onClick={() => setServiceType(dispatch, service.service.name)}

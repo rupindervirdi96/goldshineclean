@@ -3,39 +3,44 @@ import { DropDownIcon } from "../assets";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../store";
-import emailjs from "@emailjs/browser";
 import { useForm } from "react-hook-form";
-
-// interface GetQuoteProps {}
 
 export const GetQuote = () => {
   const [addressText, setAddressText] = React.useState("");
   const [typingActive, setTypingActive] = React.useState(false);
   const [showFrequency, setShowFrequency] = React.useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm();
+
+  const selectServiceType = watch("serviceType");
+  const selectServiceFrequency = watch("serviceFrequency");
+
   const dispatch = useDispatch();
   const { addressList, selectedServiceType } = useSelector((state: any) => ({
     addressList: state.addressList,
     selectedServiceType: state.selectedServiceType,
   }));
 
-  const [serviceTypeList, setServiceTypeList] = React.useState([
-    "COMMERCIAL",
-    "RESIDENTIAL",
-    "CARPETS",
-    "STAIN REMOVAL",
-    "CONSTRUCTION",
-  ]);
+  const serviceTypeList = [
+    "Commercial",
+    "Residential",
+    "Glass Cleaning",
+    "Stain Removal",
+    "Contruction",
+  ];
+
+  const serviceFrequencyList = ["Weekly", "Biweekly", "Monthly"];
 
   useEffect(() => {
     addressText && actions.fetchAddresses(dispatch, addressText);
-  }, [addressText]);
+  }, [addressText, dispatch]);
 
-  const requestQuote = async (data: any) => {
+  const requestQuote = async (data: any, e: any) => {
     const {
       clientName,
       serviceType,
@@ -61,17 +66,31 @@ export const GetQuote = () => {
         serviceDetails,
       },
     };
-    console.log(errors);
 
     const templateMessage = `Hi, this is ${clientName} here. I need "${
       serviceTypeList[serviceType - 1]
     }" cleaning service ${
-      serviceFrequency ? serviceFrequency : ""
+      serviceFrequency ? serviceFrequencyList[serviceFrequency] : ""
     } at ${location}. Reach me out at ${email} or ${phonenumber}. ${
-      serviceDetails ? "\n\nDetails: " + serviceDetails : ""
+      serviceDetails ? "Details: " + serviceDetails : ""
     }`;
-    if (!errors.keys) {
-      window.location.href = `https://wa.me/13065806152?text=${templateMessage}`;
+
+    if (
+      !errors.keys &&
+      selectServiceType !== "0" &&
+      (showFrequency ? selectServiceFrequency !== "0" : true)
+    ) {
+      if (e?.nativeEvent?.submitter?.name === "whatsappBtn")
+        window.location.href = `https://wa.me/13065806152?text=${templateMessage}`;
+      else if (e?.nativeEvent?.submitter?.name === "textBtn") {
+        window.location.href = `sms:+113065806152?body=${templateMessage}`;
+      } else {
+        const response = await axios.post(
+          "https://api.emailjs.com/api/v1.0/email/send",
+          emailDetails
+        );
+        console.log(response.data);
+      }
     }
   };
 
@@ -83,7 +102,7 @@ export const GetQuote = () => {
     >
       <form
         action=""
-        className="grid w-full mx-auto text-gray-600 gap-3 text-sm"
+        className="grid w-full mx-auto text-gray-600 gap-3 text-sm md:w-1/2 md:mx-auto"
         onSubmit={handleSubmit(requestQuote)}
       >
         <h1 className="mainTitle mb-6 mt-12 text-3xl text-center text-white">
@@ -108,11 +127,11 @@ export const GetQuote = () => {
             className="rounded-md w-full p-4 bg-transparent appearance-none"
             {...register("serviceType", { required: true })}
           >
-            <option value="0">Select your service</option>
+            <option value="">Select your service</option>
             {serviceTypeList.map((service, key) => (
               <option
                 value={key + 1}
-                selected={service === selectedServiceType}
+                selected={service.toUpperCase() === selectedServiceType}
               >
                 {service}
               </option>
@@ -130,15 +149,22 @@ export const GetQuote = () => {
           />
         </div>
         {showFrequency && (
-          <select
-            className="w-full p-4 h-[52px] bg-gray-200 rounded-md"
-            id=""
-            {...register("frequency", { required: true })}
-          >
-            <option value="">Weekly</option>
-            <option value="">Biweekly</option>
-            <option value="">Monthly</option>
-          </select>
+          <div className="w-full relative bg-gray-200 rounded-md">
+            <DropDownIcon
+              fill="#777"
+              className="absolute top-1/2 left-full -translate-x-8 -translate-y-1/2"
+            />
+            <select
+              className="rounded-md w-full p-4 bg-transparent appearance-none"
+              id=""
+              {...register("serviceFrequency", { required: true })}
+            >
+              <option value="">Select service cycle</option>
+              <option value="1">Weekly</option>
+              <option value="2">Biweekly</option>
+              <option value="3">Monthly</option>
+            </select>
+          </div>
         )}
         <input
           className="w-full p-4 h-[52px] bg-gray-200 rounded-md"
@@ -190,23 +216,36 @@ export const GetQuote = () => {
           type="phonenumber"
           placeholder="Phone"
           className="w-full p-4 bg-gray-200 rounded-md"
-          {...register("phonenumber", { required: true, maxLength: 10 })}
+          {...register("phonenumber", {
+            required: true,
+            maxLength: 10,
+            minLength: 10,
+          })}
         />
         <textarea
           className="w-full p-4 bg-gray-200 rounded-md"
           placeholder="Provide a summary of the services needed"
           {...register("serviceDetails", { required: true })}
         />
-        <div className="flex gap-10">
+        <div className="flex justify-between">
           <button
-            className="p-6 bg-green-800 text-white rounded-md w-1/2 mx-auto"
+            className="p-6 bg-green-800 text-white rounded-md mr-2"
             type="submit"
+            name="emailBtn"
           >
             GetQuote
           </button>
           <button
-            className="p-6 bg-green-800 text-white rounded-md w-1/2 mx-auto"
+            className="p-6 bg-green-800 text-white rounded-md mx-2"
             type="submit"
+            name="textBtn"
+          >
+            Message
+          </button>
+          <button
+            className="p-6 bg-green-800 text-white rounded-md ml-2"
+            type="submit"
+            name="whatsappBtn"
           >
             Whatsapp
           </button>

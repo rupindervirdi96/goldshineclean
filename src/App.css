@@ -41,6 +41,16 @@
   animation: marquee 50s linear infinite;
 }
 
+.logo {
+  height: 150px;
+  width: 150px;
+  background-image: url("./assets/mainLogo.jpeg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  margin: 73px auto;
+}
+
 @keyframes marquee {
   0% {
     transform: translate(0, 0);

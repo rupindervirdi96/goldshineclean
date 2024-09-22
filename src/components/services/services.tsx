@@ -1,11 +1,10 @@
 import React from "react";
 import { EnhancedServiceWithSlideWork } from "./service";
-import { Footer } from "../footer";
 
 interface ServicesProps {}
 
 export const Services = ({}: ServicesProps) => {
-  const [services, setServices] = React.useState<any>([
+  const services=[
     {
       name: "COMMERCIAL",
       images: [
@@ -28,15 +27,25 @@ export const Services = ({}: ServicesProps) => {
       description:
         "Enjoy the comfort of a sparkling clean home with our residential cleaning services. We take care of every nook and cranny, ensuring a healthy and welcoming space for you and your family to relax and thrive.",
     },
+    // {
+    //   name: "CARPETS",
+    //   images: [
+    //     "https://images.unsplash.com/photo-1534889156217-d643df14f14a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    //     "https://images.unsplash.com/photo-1527515673510-8aa78ce21f9b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    //     "https://plus.unsplash.com/premium_photo-1677234147034-ced930647894?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    //   ],
+    //   description:
+    //     "Revitalize your carpets with our expert carpet cleaning services. We remove deep-seated dirt and stains, restoring the vibrant colors and plush feel of your carpets, making them look and feel brand new.",
+    // },
     {
-      name: "CARPETS",
+      name: "GLASS CLEANING",
       images: [
-        "https://images.unsplash.com/photo-1534889156217-d643df14f14a?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1527515673510-8aa78ce21f9b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://plus.unsplash.com/premium_photo-1677234147034-ced930647894?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1683141114952-91f1915dcc0b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1676810457654-db59e1416504?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1679500354742-89a2c21e3103?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       ],
       description:
-        "Revitalize your carpets with our expert carpet cleaning services. We remove deep-seated dirt and stains, restoring the vibrant colors and plush feel of your carpets, making them look and feel brand new.",
+        "Professional glass cleaning service for homes and businesses. We use eco-friendly products to achieve spotless, streak-free windows, enhancing visibility and appearance. Ideal for maintaining a clear and pristine look for both interiors and exteriors.",
     },
     {
       name: "STAIN REMOVAL",
@@ -56,16 +65,14 @@ export const Services = ({}: ServicesProps) => {
       ],
       description:
         "Post-construction mess? No problem! Our construction cleaning services handle the toughest debris and dust, ensuring your newly built or renovated space is spotless and ready for use.",
-    }
-  ]);
+    },
+  ];
+  
   return (
-    <div
-      id="home"
-      className="min-w-full flex flex-col p-3"
-      data-index={0}
-    >
+    <div id="home" className="min-w-full flex flex-col p-3" data-index={0}>
+      <div className="logo"></div>
       <div>
-        <p className="text-lg my-8 mt-12 text-white text-center">
+        <p className="text-lg my-8 mt-0 text-white text-center md:w-1/2 md:mx-auto">
           Experience a spotless home with our professional cleaning services. We
           ensure a clean, healthy, and welcoming environment for you and your
           family. Checkout our range of services below.
