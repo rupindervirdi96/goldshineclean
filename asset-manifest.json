@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/goldshineclean/static/css/main.1b1e9663.css",
-    "main.js": "/goldshineclean/static/js/main.58966fcd.js",
+    "main.css": "/goldshineclean/static/css/main.3828aca7.css",
+    "main.js": "/goldshineclean/static/js/main.dc1d1f04.js",
     "static/media/bg1.jpg": "/goldshineclean/static/media/bg1.0956558dc3c11dccb9a8.jpg",
     "static/media/mainLogo.jpeg": "/goldshineclean/static/media/mainLogo.ab602d31b7c9ef2f28be.jpeg",
     "static/media/tikTokIcon.svg": "/goldshineclean/static/media/tikTokIcon.fafd91ddd92b9cbd87d9ce06e0a3cb95.svg",
@@ -16,11 +16,11 @@
     "static/media/menu.svg": "/goldshineclean/static/media/menu.271ea0c1da28d003ec386119e7b1ca5c.svg",
     "static/media/nextStep.svg": "/goldshineclean/static/media/nextStep.9d199a6952843804af3cfc7ee6d4137d.svg",
     "static/media/dropDown.svg": "/goldshineclean/static/media/dropDown.0fc4319830bfe969db9200eb2b999a48.svg",
-    "main.1b1e9663.css.map": "/goldshineclean/static/css/main.1b1e9663.css.map",
-    "main.58966fcd.js.map": "/goldshineclean/static/js/main.58966fcd.js.map"
+    "main.3828aca7.css.map": "/goldshineclean/static/css/main.3828aca7.css.map",
+    "main.dc1d1f04.js.map": "/goldshineclean/static/js/main.dc1d1f04.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b1e9663.css",
-    "static/js/main.58966fcd.js"
+    "static/css/main.3828aca7.css",
+    "static/js/main.dc1d1f04.js"
   ]
 }
