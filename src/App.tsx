@@ -11,13 +11,19 @@ import {
 } from "./assets";
 import { GetQuote } from "./components/getQuote";
 import { Footer } from "./components/footer";
+import { getReviews, getServices } from "./utils/review";
 
 function App() {
   const [showSidebar, setToggleSidebar] = useState<any>(false);
 
+  // useEffect(()=>{
+  //   getServices();
+  //   getReviews();
+  // }, [])
+
   return (
     <div className="relative h-dvh w-full md:[h-50vh] md:max-w-50% md:m-auto">
-      <div className="overflow-y-hidden overflow-x-hidden relative bg-[url('./assets/bg1.jpg')] bg-cover bg-gray-800 bg-blend-overlay backdrop-blur-md">
+      <div className="overflow-y-hidden overflow-x-hidden relative bg-[url('./assets/bg1.jpg')] bg-center bg-cover bg-fixed bg-gray-800 bg-blend-overlay backdrop-blur-lg">
         <Navbar
           isSidebarVisible={showSidebar}
           setToggleSidebar={setToggleSidebar}

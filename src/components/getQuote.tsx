@@ -227,34 +227,29 @@ export const GetQuote = () => {
           placeholder="Provide a summary of the services needed"
           {...register("serviceDetails", { required: true })}
         />
-        <div className="flex justify-between">
+        <div className="grid grid-cols-[1fr_1fr_1fr] justify-between gap-3">
           <button
-            className="p-6 bg-green-800 text-white rounded-md mr-2"
+            className="p-5 bg-green-800 text-white rounded-md "
             type="submit"
             name="emailBtn"
           >
-            GetQuote
+            Email
           </button>
           <button
-            className="p-6 bg-green-800 text-white rounded-md mx-2"
+            className="p-5 bg-green-800 text-white rounded-md "
             type="submit"
             name="textBtn"
           >
             Message
           </button>
           <button
-            className="p-6 bg-green-800 text-white rounded-md ml-2"
+            className="p-5 bg-green-800 text-white rounded-md "
             type="submit"
             name="whatsappBtn"
           >
             Whatsapp
           </button>
         </div>
-        {/* <input
-          type="submit"
-          value="Get Quote"
-          className="p-6 bg-green-800 text-white rounded-md w-1/2 mx-auto"
-        /> */}
       </form>
     </div>
   );

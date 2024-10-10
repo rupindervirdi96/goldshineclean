@@ -8,7 +8,7 @@ interface NavbarProps {
 export const Navbar = ({}: NavbarProps) => {
 
   return (
-    <div className="relative top-0 grid border-b-[0.1px] border-[rgba(255,255,255,0.2)] grid-cols-[1fr_max-content] justify-between max-sm:p-4 items-center md:p-8">
+    <div className="relative top-0 grid border-b-[0.1px] border-[rgba(255,255,255,0.2)] grid-cols-[1fr_max-content] justify-between p-4 items-center md:p-8">
       <div className="marquee">
           <p>
             WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME WELCOME

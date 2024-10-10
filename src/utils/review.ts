@@ -1,3 +1,4 @@
+import axios from "axios";
 import { log } from "console";
 
 export const calculateDifference = (startDate: Date) => {
@@ -14,4 +15,14 @@ export const calculateDifference = (startDate: Date) => {
   } else {
     return `${Math.floor(diffDays / 365)} year(s) ago`;
   }
+};
+
+export const getReviews = async() => {
+  const response = await axios.get("http://localhost:5000/api/reviews");
+  console.log(response);
+};
+
+export const getServices = async() => {
+  const response = await axios.get("http://localhost:5000/api/services");
+  return response.data;
 };
