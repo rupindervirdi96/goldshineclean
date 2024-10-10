@@ -38,6 +38,17 @@ export const Services = ({}: ServicesProps) => {
     //     "Revitalize your carpets with our expert carpet cleaning services. We remove deep-seated dirt and stains, restoring the vibrant colors and plush feel of your carpets, making them look and feel brand new.",
     // },
     {
+      name: "AIRBNB",
+      images: [
+        "https://plus.unsplash.com/premium_photo-1686090448728-34d6ebc43390?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1686090448422-de8536066f64?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1684175656218-70f1c6f442b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1679939153963-ff44f5deeba2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      description:
+        "Ensure 5-star reviews with our top-tier Airbnb cleaning services. We provide thorough, reliable cleanings, leaving your space spotless and guest-ready. Satisfaction guaranteed, every stay, every time!",
+    },
+    {
       name: "GLASS CLEANING",
       images: [
         "https://plus.unsplash.com/premium_photo-1683141114952-91f1915dcc0b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -48,20 +59,10 @@ export const Services = ({}: ServicesProps) => {
         "Professional glass cleaning service for homes and businesses. We use eco-friendly products to achieve spotless, streak-free windows, enhancing visibility and appearance. Ideal for maintaining a clear and pristine look for both interiors and exteriors.",
     },
     {
-      name: "STAIN REMOVAL",
-      images: [
-        "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1627905646269-7f034dcc5738?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      ],
-      description:
-        "Say goodbye to stubborn stains with our specialized stain removal services. Whether it's wine, coffee, or pet stains, we have the expertise to eliminate them, restoring the beauty of your fabrics and surfaces.",
-    },
-    {
       name: "CONSTRUCTION",
       images: [
         "https://images.unsplash.com/photo-1444419988131-046ed4e5ffd6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://plus.unsplash.com/premium_photo-1682366278661-1096d176d96f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
       description:
         "Post-construction mess? No problem! Our construction cleaning services handle the toughest debris and dust, ensuring your newly built or renovated space is spotless and ready for use.",
